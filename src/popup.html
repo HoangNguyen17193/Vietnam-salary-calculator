@@ -9,15 +9,15 @@
 </head>
 
 <body>
-  <div class="container">
-    <form>
+  <div class="container TC">
+    <form class="TC__form">
       <div class="form-group">
         <label for="gross-salary">Gross salary</label>
-        <input required type="number" class="form-control" id="gross-salary">
+        <input required type="number" class="form-control TC__form__gross-salary" id="gross-salary">
       </div>
       <div class="form-group">
         <label for="register-dependents">Registered dependents</label>
-        <input required type="number" class="form-control" id="register-dependents" placeholder="Password">
+        <input required type="number" class="form-control TC__form__register-dependents" id="register-dependents" placeholder="Password">
       </div>
       <button type="submit" class="btn btn-primary button">Calculate</button>
     </form>
@@ -25,6 +25,6 @@
   <script type="text/javascript" src="lib/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="lib/bootstrap-4.3.1/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="lib/waves/waves.min.js"></script>
-  <script type="text/javascript" src="js/initial.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
