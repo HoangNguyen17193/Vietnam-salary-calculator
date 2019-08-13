@@ -1,4 +1,4 @@
-const TAX_LEVEL = [
+const TAX_LEVELS = [
   {
     number: 1,
     from: 0,
@@ -43,5 +43,5 @@ const TAX_LEVEL = [
 ];
 
 export {
-  TAX_LEVEL
+  TAX_LEVELS
 }
