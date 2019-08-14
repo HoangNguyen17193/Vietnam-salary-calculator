@@ -3,8 +3,12 @@
   min-height: 300px;
   padding: 30px;
   background-color: #3F4041;
+  color: #98A5B3;
 }
-
+.TC__form-container {
+  width: 400px;
+  margin: auto;
+}
 .TC__form__input {
   padding-left: 15px;
   border-radius: 10rem;
@@ -16,6 +20,11 @@
   background-color: rgba(194,199,203,0.2);
 }
 
+.TC__form__input:focus {
+  color: #C2C7CC;
+  background-color: rgba(194,199,203,0.2);
+}
+
 .TC__form__label {
   color: #98A5B3;
 }
@@ -23,4 +32,20 @@
 .TC__form__button {
   background-color: #00A9FF;
   border-radius: 10rem;
+}
+
+.TC__form__note {
+  color: #A1A9B3;
+  font-size: 12px;
+  padding-top: 10px;
+}
+
+.TC__form__note ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.TC__result {
+  width: 700px;
+  margin: auto;
 }

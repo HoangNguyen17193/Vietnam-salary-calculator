@@ -1,31 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>VN Tax calculator</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700|Roboto:400,500,700" rel="stylesheet">
-  <link rel="stylesheet" href="lib/waves/waves.min.css" type="text/css" />
-  <link rel="stylesheet" href="lib/bootstrap-4.3.1/css/bootstrap.css" type="text/css" />
-  <link rel="stylesheet" href="popup.css" type="text/css" />
+  <link rel="stylesheet" href="lib/waves/waves.min.css" type="text/css"/>
+  <link rel="stylesheet" href="lib/bootstrap-4.3.1/css/bootstrap.css" type="text/css"/>
+  <link rel="stylesheet" href="popup.css" type="text/css"/>
 </head>
 
 <body>
-  <div class="container TC">
+<div class="TC">
+  <div class="TC__form-container">
     <form class="TC__form">
       <div class="form-group">
         <label class="TC__form__label" for="gross-salary">Gross salary(VND)*</label>
-        <input required type="text" class="form-control TC__form__input TC__form__gross-salary" id="gross-salary">
+        <input autocomplete="off" required type="text" class="form-control TC__form__input TC__form__gross-salary" id="gross-salary">
       </div>
       <div class="form-group">
         <label class="TC__form__label" for="register-dependents">Registered dependents</label>
-        <input required type="number" min="0" max="100" class="form-control TC__form__input TC__form__register-dependents" id="register-dependents">
+        <input type="number" min="0" max="100" class="form-control TC__form__input TC__form__register-dependents" id="register-dependents">
       </div>
       <button type="submit" class="btn btn-primary TC__form__button">Calculate</button>
+      <div class="TC__form__note">
+        <ul>
+          <li>These figures are an estimate of monthly provisional income.</li>
+          <li>All currency in VND (Vietnamese Dong)</li>
+          <li>This is effective July 1 2019</li>
+        </ul>
+      </div>
     </form>
   </div>
-  <script type="text/javascript" src="lib/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="lib/autonumeric-4.1.0.js"></script>
-  <script type="text/javascript" src="lib/bootstrap-4.3.1/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="lib/waves/waves.min.js"></script>
-  <script type="module" src="js/main.js"></script>
+  <div class="TC__result-container">
+  </div>
+</div>
+<script type="text/javascript" src="lib/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="lib/autonumeric-4.1.0.js"></script>
+<script type="text/javascript" src="lib/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="lib/waves/waves.min.js"></script>
+<script type="module" src="js/main.js"></script>
 </body>
 </html>

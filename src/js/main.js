@@ -1,4 +1,5 @@
 import Calculator from './calculator.js';
+import Report from './report.js';
 
 $(document).ready(() => {
   Waves.attach('.TC__form__button');
@@ -10,8 +11,11 @@ $(document).ready(() => {
 
   $('.TC__form').on('submit', (e) => {
     e.preventDefault();
+    console.log('zo zo zo');
     const grossSalary = $('.TC__form__gross-salary').val();
     const dependents = $('.TC__form__register-dependents').val();
-    console.log(Calculator.calculate(grossSalary, dependents));
+    const result = Calculator.calculate(grossSalary, dependents);
+    $('html').width("800px");
+    $('.TC__result-container').append(Report.generate(result));
   });
 });
