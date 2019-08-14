@@ -1,4 +1,4 @@
-import { TAX_LEVELS } from './constants.js';
+import { TAX_LEVELS, MAX_SALARY_FOR_HEALTH_INSURANCE, MAX_SALARY_FOR_SOCIAL_INSURANCE } from './constants.js';
 
 export default class {
   static calculate(grossSalary, dependents) {
@@ -29,8 +29,10 @@ export default class {
   }
 
   static calculateStatutoryInsuranceContribution(grossSalary = 0) {
-    const socialInsurance = (grossSalary * 8) / 100;
-    const healthInsurance = (grossSalary * 1.5) / 100;
+    const salaryForSocialInsurance = grossSalary > MAX_SALARY_FOR_SOCIAL_INSURANCE ? MAX_SALARY_FOR_SOCIAL_INSURANCE : grossSalary;
+    const salaryForHelthInsurance = grossSalary > MAX_SALARY_FOR_HEALTH_INSURANCE ? MAX_SALARY_FOR_HEALTH_INSURANCE : grossSalary;
+    const socialInsurance = (salaryForSocialInsurance * 8) / 100;
+    const healthInsurance = (salaryForHelthInsurance * 1.5) / 100;
     const unEmploymentInsurance = grossSalary / 100;
     return {
       socialInsurance,
