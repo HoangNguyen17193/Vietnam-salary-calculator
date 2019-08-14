@@ -1,4 +1,26 @@
-.container {
-  width: 500px;
-  height: 500px;
+.TC {
+  min-width: 400px;
+  min-height: 300px;
+  padding: 30px;
+  background-color: #3F4041;
+}
+
+.TC__form__input {
+  padding-left: 15px;
+  border-radius: 10rem;
+  background-color: rgba(194,199,203,0.2);
+  border: none;
+  color: #C2C7CC;
+}
+.TC__form__input:hover {
+  background-color: rgba(194,199,203,0.2);
+}
+
+.TC__form__label {
+  color: #98A5B3;
+}
+
+.TC__form__button {
+  background-color: #00A9FF;
+  border-radius: 10rem;
 }

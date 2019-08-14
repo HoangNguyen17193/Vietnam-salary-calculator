@@ -1,7 +1,7 @@
 import Calculator from './calculator.js';
 
 $(document).ready(() => {
-  Waves.attach('.button');
+  Waves.attach('.TC__form__button');
   Waves.init();
   new AutoNumeric('#gross-salary', {
     unformatOnSubmit: true,

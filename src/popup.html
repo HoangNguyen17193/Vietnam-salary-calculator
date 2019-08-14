@@ -12,14 +12,14 @@
   <div class="container TC">
     <form class="TC__form">
       <div class="form-group">
-        <label for="gross-salary">Gross salary(VND)*</label>
-        <input required type="text" class="form-control TC__form__gross-salary" id="gross-salary">
+        <label class="TC__form__label" for="gross-salary">Gross salary(VND)*</label>
+        <input required type="text" class="form-control TC__form__input TC__form__gross-salary" id="gross-salary">
       </div>
       <div class="form-group">
-        <label for="register-dependents">Registered dependents</label>
-        <input required type="number" min="0" max="100" class="form-control TC__form__register-dependents" id="register-dependents" placeholder="Password">
+        <label class="TC__form__label" for="register-dependents">Registered dependents</label>
+        <input required type="number" min="0" max="100" class="form-control TC__form__input TC__form__register-dependents" id="register-dependents">
       </div>
-      <button type="submit" class="btn btn-primary button">Calculate</button>
+      <button type="submit" class="btn btn-primary TC__form__button">Calculate</button>
     </form>
   </div>
   <script type="text/javascript" src="lib/jquery-3.4.1.min.js"></script>
