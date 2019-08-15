@@ -1,12 +1,12 @@
 .TC {
-  min-width: 400px;
+  min-width: 450px;
   min-height: 300px;
   padding: 30px;
   background-color: #3F4041;
   color: #98A5B3;
 }
 .TC__form-container {
-  width: 400px;
+  width: 450px;
   margin: auto;
 }
 .TC__form__input {
@@ -64,4 +64,10 @@
 .TC__result {
   width: 700px;
   margin: auto;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+  color: #fff;
+  border-color: #25aae1;
+  background-color: #25aae1;
 }
