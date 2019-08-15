@@ -1,8 +1,16 @@
-import { TAX_LEVELS, MAX_SALARY_FOR_HEALTH_INSURANCE, MAX_SALARY_FOR_SOCIAL_INSURANCE } from './constants.js';
+import {
+  TAX_LEVELS,
+  MAX_SALARY_FOR_HEALTH_INSURANCE,
+  MAX_SALARY_FOR_SOCIAL_INSURANCE,
+  REGION_1_MIN_SALARY,
+  REGION_2_MIN_SALARY,
+  REGION_3_MIN_SALARY,
+  REGION_4_MIN_SALARY
+} from './constants.js';
 
 export default class {
-  static calculate(grossSalary, dependents) {
-    const statutoryInsuranceContribution = this.calculateStatutoryInsuranceContribution(grossSalary);
+  static calculate(grossSalary, dependents, region) {
+    const statutoryInsuranceContribution = this.calculateStatutoryInsuranceContribution(grossSalary, region);
     const taxes = this.calculateTax((grossSalary - statutoryInsuranceContribution.total), dependents);
     const tax = taxes ? taxes.reduce((total, tax) => total + tax.total, 0) : 0;
     return {
@@ -28,17 +36,33 @@ export default class {
       })
   }
 
-  static calculateStatutoryInsuranceContribution(grossSalary = 0) {
+  static calculateStatutoryInsuranceContribution(grossSalary = 0, region) {
     const salaryForSocialInsurance = grossSalary > MAX_SALARY_FOR_SOCIAL_INSURANCE ? MAX_SALARY_FOR_SOCIAL_INSURANCE : grossSalary;
-    const salaryForHelthInsurance = grossSalary > MAX_SALARY_FOR_HEALTH_INSURANCE ? MAX_SALARY_FOR_HEALTH_INSURANCE : grossSalary;
+    const salaryForHealthInsurance = grossSalary > MAX_SALARY_FOR_HEALTH_INSURANCE ? MAX_SALARY_FOR_HEALTH_INSURANCE : grossSalary;
+    const maxSalaryForUnemploymentInsurance = this.getMaxSalaryForUnemploymentInsurance(region);
+    const salaryForEmploymentInsurance = grossSalary > maxSalaryForUnemploymentInsurance ? maxSalaryForUnemploymentInsurance : grossSalary;
     const socialInsurance = (salaryForSocialInsurance * 8) / 100;
-    const healthInsurance = (salaryForHelthInsurance * 1.5) / 100;
-    const unEmploymentInsurance = grossSalary / 100;
+    const healthInsurance = (salaryForHealthInsurance * 1.5) / 100;
+    const unEmploymentInsurance = salaryForEmploymentInsurance / 100;
     return {
       socialInsurance,
       healthInsurance,
       unEmploymentInsurance,
       total: socialInsurance + healthInsurance + unEmploymentInsurance
     }
+  }
+
+  static getMaxSalaryForUnemploymentInsurance(rawRegion = 1) {
+    const region = parseInt(rawRegion, 10);
+    if(region === 4) {
+      return REGION_4_MIN_SALARY * 20;
+    }
+    if(region === 3) {
+      return REGION_3_MIN_SALARY * 20;
+    }
+    if(region === 2) {
+      return REGION_2_MIN_SALARY * 20;
+    }
+    return REGION_1_MIN_SALARY;
   }
 }
