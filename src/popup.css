@@ -30,8 +30,24 @@
 }
 
 .TC__form__button {
-  background-color: #00A9FF;
+  width: 100px;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 10px;
+  height: 35px;
+  text-align:center;
+  border: none;
+  background-size: 300% 100%;
+  transition: all .4s ease-in-out;
+  background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
   border-radius: 10rem;
+}
+
+.TC__form__button:hover {
+  background-position: 100% 0;
+  transition: all .4s ease-in-out;
 }
 
 .TC__form__note {
