@@ -16,7 +16,8 @@ $(document).ready(() => {
     const region = $('input[name=region-radio-input]:checked').val();
     const result = Calculator.calculate(grossSalary, dependents, region);
     console.log(result);
-    $('html').width("800px");
+    $('html').width("700px");
+    $('.TC__result-container').empty();
     $('.TC__result-container').append(Report.generate(result));
   });
 });

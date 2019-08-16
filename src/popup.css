@@ -62,7 +62,7 @@
 }
 
 .TC__result {
-  width: 700px;
+  width: 600px;
   margin: auto;
 }
 
@@ -70,4 +70,7 @@
   color: #fff;
   border-color: #25aae1;
   background-color: #25aae1;
+}
+.TC .table {
+  color: #98A5B3;
 }
