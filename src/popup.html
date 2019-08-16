@@ -14,11 +14,11 @@
     <form class="TC__form">
       <div class="form-group">
         <label class="TC__form__label" for="gross-salary">Gross salary(VND)*</label>
-        <input autocomplete="off" required type="text" class="form-control TC__form__input TC__form__gross-salary" id="gross-salary">
+        <input value="0" autocomplete="off" required type="text" class="form-control TC__form__input TC__form__gross-salary" id="gross-salary">
       </div>
       <div class="form-group">
         <label class="TC__form__label" for="register-dependents">Registered dependents</label>
-        <input type="number" min="0" max="100" class="form-control TC__form__input TC__form__register-dependents" id="register-dependents">
+        <input value="0" type="number" min="0" max="100" class="form-control TC__form__input TC__form__register-dependents" id="register-dependents">
       </div>
       <div class="form-group">
         <div class="custom-control custom-radio custom-control-inline">
@@ -41,7 +41,9 @@
           <label class="custom-control-label" for="TC_region4">Region 4</label>
         </div>
       </div>
-      <button type="submit" class="TC__form__button">Calculate</button>
+      <button type="submit" class="TC__form__button TC__form__calculate-button">Calculate</button>
+
+      <button type="button" class="TC__form__button TC__form__clear-button">Clear</button>
       <div class="TC__form__note">
         <ul>
           <li>These figures are estimated base on provisional monthly income.</li>
