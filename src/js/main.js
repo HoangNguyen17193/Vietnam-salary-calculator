@@ -20,4 +20,12 @@ $(document).ready(() => {
     $('.TC__result-container').empty();
     $('.TC__result-container').append(Report.generate(result));
   });
+
+  $('.TC__form__clear-button').click(() => {
+    AutoNumeric.getAutoNumericElement('.TC__form__gross-salary').set(0);
+    $('.TC__form__register-dependents').val(0);
+    $('.TC__result-container').empty();
+    $("#TC_region1").prop("checked", true);
+    $('html').width("510px");
+  })
 });

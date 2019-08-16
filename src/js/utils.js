@@ -1,6 +1,10 @@
 function formatCurrency(amount) {
   const validAmount = parseFloat(amount);
-  return validAmount.toLocaleString('it-IT', {style : 'currency', currency : 'VND'});
+  return validAmount.toLocaleString(undefined, {
+    style : 'currency',
+    currency : 'VND',
+    minimumFractionDigits: 2
+  });
 }
 
 export {

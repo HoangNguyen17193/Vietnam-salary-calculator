@@ -11,12 +11,14 @@ import {
 export default class {
   static calculate(grossSalary, dependents, region) {
     const statutoryInsuranceContribution = this.calculateStatutoryInsuranceContribution(grossSalary, region);
-    const taxes = this.calculateTax((grossSalary - statutoryInsuranceContribution.total), dependents);
-    const tax = taxes ? taxes.reduce((total, tax) => total + tax.total, 0) : 0;
+    const tax = this.calculateTax((grossSalary - statutoryInsuranceContribution.total), dependents);
+    const totalTax = tax.taxes ? tax.taxes.reduce((total, tax) => total + tax.total, 0) : 0;
     return {
+      grossSalary,
       statutoryInsuranceContribution,
-      taxes,
-      total: grossSalary - tax - statutoryInsuranceContribution.total
+      tax,
+      totalTax,
+      netSalary: grossSalary - totalTax - statutoryInsuranceContribution.total
     }
   }
 
@@ -25,7 +27,7 @@ export default class {
     if(taxableIncome <= 0) {
       return 0;
     }
-    return TAX_LEVELS.filter(taxLevel => taxableIncome > taxLevel.to || (taxLevel.from < taxableIncome && taxLevel.to))
+    const taxes = TAX_LEVELS.filter(taxLevel => taxableIncome > taxLevel.to || (taxLevel.from < taxableIncome && taxLevel.to))
       .map(taxLevel => {
         if(taxableIncome > taxLevel.to) {
           const total = ((taxLevel.to - taxLevel.from) * taxLevel.percent) / 100;
@@ -33,7 +35,11 @@ export default class {
         }
         const total = ((taxableIncome - taxLevel.from) * taxLevel.percent) / 100;
         return {...taxLevel, total}
-      })
+      });
+    return {
+      taxableIncome,
+      taxes
+    }
   }
 
   static calculateStatutoryInsuranceContribution(grossSalary = 0, region) {
@@ -63,6 +69,6 @@ export default class {
     if(region === 2) {
       return REGION_2_MIN_SALARY * 20;
     }
-    return REGION_1_MIN_SALARY;
+    return REGION_1_MIN_SALARY * 20;
   }
 }
