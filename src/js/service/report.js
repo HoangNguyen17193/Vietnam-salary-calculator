@@ -8,8 +8,7 @@ export default class {
       grossSalary,
     } = salaryDetail;
     return `<div class="TC__result">
-              <div class="row">
-                <table class="table TC__result__table">
+               <table class="table TC__result__table">
                  <tbody>
                     <tr>
                       <td class="TC__result__table__header-column TC--no-border">Gross Salary</td>
@@ -54,8 +53,6 @@ export default class {
                       </tr>
                     </tbody>
                  </table>
-              </div>
-              <div class="row">
                <h5 class="TC__result__table__header">Personal income tax withheld</h5>
                  <table class="table TC__result__table">
                     <tbody>
@@ -80,7 +77,6 @@ export default class {
                     </tr>
                   </tbody>
                 </table>
-              </div>
             </div>`
   }
 
