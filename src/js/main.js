@@ -1,5 +1,5 @@
-import Calculator from './calculator.js';
-import Report from './report.js';
+import Calculator from './service/calculator.js';
+import Report from './service/report.js';
 
 $(document).ready(() => {
   Waves.attach('.TC__form__button');
@@ -14,11 +14,10 @@ $(document).ready(() => {
     const grossSalary = $('.TC__form__gross-salary').val();
     const dependents = $('.TC__form__register-dependents').val();
     const region = $('input[name=region-radio-input]:checked').val();
-    const result = Calculator.calculate(grossSalary, dependents, region);
-    console.log(result);
+    const salaryDetail = Calculator.calculate(grossSalary, dependents, region);
     $('html').width("700px");
     $('.TC__result-container').empty();
-    $('.TC__result-container').append(Report.generate(result));
+    $('.TC__result-container').append(Report.generate(salaryDetail));
   });
 
   $('.TC__form__clear-button').click(() => {

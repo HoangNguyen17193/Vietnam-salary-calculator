@@ -6,20 +6,15 @@ import {
   REGION_2_MIN_SALARY,
   REGION_3_MIN_SALARY,
   REGION_4_MIN_SALARY
-} from './constants.js';
+} from '../constants.js';
+
+import SalaryDetail from '../model/salary-detail.js';
 
 export default class {
   static calculate(grossSalary, dependents, region) {
     const statutoryInsuranceContribution = this.calculateStatutoryInsuranceContribution(grossSalary, region);
-    const tax = this.calculateTax((grossSalary - statutoryInsuranceContribution.total), dependents);
-    const totalTax = tax.taxes ? tax.taxes.reduce((total, tax) => total + tax.total, 0) : 0;
-    return {
-      grossSalary,
-      statutoryInsuranceContribution,
-      tax,
-      totalTax,
-      netSalary: grossSalary - totalTax - statutoryInsuranceContribution.total
-    }
+    const taxes = this.calculateTax((grossSalary - statutoryInsuranceContribution.total), dependents);
+    return new SalaryDetail(grossSalary, dependents, taxes, statutoryInsuranceContribution);
   }
 
   static calculateTax(income = 0, dependents = 0) {
@@ -27,7 +22,7 @@ export default class {
     if(taxableIncome <= 0) {
       return 0;
     }
-    const taxes = TAX_LEVELS.filter(taxLevel => taxableIncome > taxLevel.to || (taxLevel.from < taxableIncome && taxLevel.to))
+    return TAX_LEVELS.filter(taxLevel => taxableIncome > taxLevel.to || (taxLevel.from < taxableIncome && taxLevel.to))
       .map(taxLevel => {
         if(taxableIncome > taxLevel.to) {
           const total = ((taxLevel.to - taxLevel.from) * taxLevel.percent) / 100;
@@ -36,10 +31,6 @@ export default class {
         const total = ((taxableIncome - taxLevel.from) * taxLevel.percent) / 100;
         return {...taxLevel, total}
       });
-    return {
-      taxableIncome,
-      taxes
-    }
   }
 
   static calculateStatutoryInsuranceContribution(grossSalary = 0, region) {
