@@ -1,18 +1,12 @@
-import { formatCurrency } from './utils.js';
+import { formatCurrency } from '../utils.js';
 
 export default class {
-  static generate(result = {}) {
+  static generate(salaryDetail = {}) {
     const {
-      statutoryInsuranceContribution,
-      tax,
-      totalTax,
-      grossSalary,
-      netSalary
-    } = result;
-    const {
+      statutoryInsuranceContributions,
       taxes,
-      taxableIncome
-    } = tax;
+      grossSalary,
+    } = salaryDetail;
     return `<div class="TC__result">
               <div class="row">
                 <table class="table TC__result__table">
@@ -23,7 +17,7 @@ export default class {
                     </tr>
                   </tbody>
                 </table>
-                 <h5 class="TC__result__table__header">Statutory Insurance Contribution</h5>
+                 <h5 class="TC__result__table__header">Statutory Insurance Contributions</h5>
                  <table class="table TC__result__table">
                     <tbody>
                       <tr>
@@ -31,7 +25,7 @@ export default class {
                         Heath Insurance
                        </td>
                        <td class="TC__result__table__result-row">
-                        ${formatCurrency(statutoryInsuranceContribution.healthInsurance)}
+                        ${formatCurrency(statutoryInsuranceContributions.healthInsurance)}
                        </td>
                       </tr>
                       <tr>
@@ -39,7 +33,7 @@ export default class {
                         Social Insurance
                        </td>
                        <td class="TC__result__table__result-row">
-                        ${formatCurrency(statutoryInsuranceContribution.socialInsurance)}
+                        ${formatCurrency(statutoryInsuranceContributions.socialInsurance)}
                        </td>
                       </tr>
                       <tr>
@@ -47,7 +41,7 @@ export default class {
                         Unemployment Insurance
                        </td>
                        <td class="TC__result__table__result-row">
-                        ${formatCurrency(statutoryInsuranceContribution.unEmploymentInsurance)}
+                        ${formatCurrency(statutoryInsuranceContributions.unEmploymentInsurance)}
                        </td>
                       </tr>
                       <tr>
@@ -55,7 +49,7 @@ export default class {
                         
                        </td>
                        <td class="TC__result__table__result-row TC__result__table__total-row">
-                        ${formatCurrency(statutoryInsuranceContribution.total)}
+                        ${formatCurrency(salaryDetail.getTotalInsuranceContribution())}
                        </td>
                       </tr>
                     </tbody>
@@ -70,7 +64,7 @@ export default class {
                        <td>
                        </td>
                        <td class="TC__result__table__result-row TC__result__table__total-row">
-                        ${formatCurrency(totalTax)}
+                        ${formatCurrency(salaryDetail.getTotalTax())}
                        </td>
                       </tr>
                     </tbody>
@@ -80,7 +74,9 @@ export default class {
                  <tbody>
                     <tr>
                       <td class="TC__result__table__header-column TC--no-border">Net Salary</td>
-                      <td class="TC__result__table__result-row TC__result__table__total-row TC--no-border">${formatCurrency(netSalary)}</td>
+                      <td class="TC__result__table__result-row TC__result__table__total-row TC--no-border">
+                        ${formatCurrency(salaryDetail.getNetSalary())}
+                      </td>
                     </tr>
                   </tbody>
                 </table>
