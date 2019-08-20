@@ -15,7 +15,6 @@ $(document).ready(() => {
   });
 
   $('input[name=insurance-pay-for-radio-input]').change(function() {
-    console.log(this);
     $('.TC__form__insurance__pay-for__input').attr('disabled', this.value === "full");
   });
 
@@ -33,7 +32,9 @@ $(document).ready(() => {
 
   $('.TC__form__clear-button').click(() => {
     AutoNumeric.getAutoNumericElement('.TC__form__gross-salary').set(0);
+    AutoNumeric.getAutoNumericElement('.TC__form__insurance__pay-for__input').set(0);
     $('.TC__form__register-dependents').val(0);
+    $("#TC__insurance-pay-for__full").prop("checked", true);
     $('.TC__result-container').empty();
     $("#TC_region1").prop("checked", true);
   })
