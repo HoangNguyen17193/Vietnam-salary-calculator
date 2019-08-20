@@ -1,12 +1,11 @@
 .TC {
-  min-width: 450px;
   min-height: 300px;
   padding: 30px;
   background-color: #3F4041;
   color: #98A5B3;
 }
 .TC__form-container {
-  width: 450px;
+  width: 600px;
   margin: auto;
 }
 .TC__form__input {
@@ -26,7 +25,17 @@
 }
 
 .TC__form__label {
-  color: #98A5B3;
+  color: white;
+}
+.TC__form__insurance__pay-for__label {
+  margin-right: 20px;
+}
+.TC__form__insurance__pay-for__input {
+  margin-top: 25px;
+}
+.TC__form__insurance__pay-for__input:disabled {
+  background-color: rgba(194,199,203,0.05);
+  cursor: not-allowed;
 }
 
 .TC__form__button {
