@@ -53,6 +53,34 @@ export default class {
                       </tr>
                     </tbody>
                  </table>
+                 <h5 class="TC__result__table__header">Deduction for tax calculation</h5>
+                 <table class="table TC__result__table"">
+                  <tbody>
+                    <tr>
+                       <td>
+                        Tax payer personal relief
+                       </td>
+                       <td>
+                        ${formatCurrency(salaryDetail.getTaxPayerPersonalRelief())}
+                       </td>
+                    </tr>
+                    <tr>
+                       <td>
+                        Dependents relief (${salaryDetail.dependents})
+                       </td>
+                       <td>
+                        ${formatCurrency(salaryDetail.getDependentsRelief())}
+                       </td>
+                    </tr>
+                    <tr>
+                       <td>
+                       </td>
+                       <td class="TC__result__table__result-row TC__result__table__total-row">
+                        ${formatCurrency(salaryDetail.getTaxPayerPersonalRelief()+ salaryDetail.getDependentsRelief())}
+                       </td>
+                    </tr>
+                  </tbody>
+                 </table>
                <h5 class="TC__result__table__header">Personal income tax withheld</h5>
                  <table class="table TC__result__table">
                     <tbody>

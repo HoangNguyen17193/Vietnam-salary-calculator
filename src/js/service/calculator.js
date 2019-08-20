@@ -11,8 +11,8 @@ import {
 import SalaryDetail from '../model/salary-detail.js';
 
 export default class {
-  static calculate(grossSalary, dependents, region) {
-    const statutoryInsuranceContribution = this.calculateStatutoryInsuranceContribution(grossSalary, region);
+  static calculate(grossSalary, dependents, region, insuranceSalary) {
+    const statutoryInsuranceContribution = this.calculateStatutoryInsuranceContribution(insuranceSalary, region);
     const taxes = this.calculateTax((grossSalary - statutoryInsuranceContribution.total), dependents);
     return new SalaryDetail(grossSalary, dependents, taxes, statutoryInsuranceContribution);
   }
@@ -33,11 +33,11 @@ export default class {
       });
   }
 
-  static calculateStatutoryInsuranceContribution(grossSalary = 0, region) {
-    const salaryForSocialInsurance = grossSalary > MAX_SALARY_FOR_SOCIAL_INSURANCE ? MAX_SALARY_FOR_SOCIAL_INSURANCE : grossSalary;
-    const salaryForHealthInsurance = grossSalary > MAX_SALARY_FOR_HEALTH_INSURANCE ? MAX_SALARY_FOR_HEALTH_INSURANCE : grossSalary;
+  static calculateStatutoryInsuranceContribution(insuranceSalary = 0, region) {
+    const salaryForSocialInsurance = insuranceSalary > MAX_SALARY_FOR_SOCIAL_INSURANCE ? MAX_SALARY_FOR_SOCIAL_INSURANCE : insuranceSalary;
+    const salaryForHealthInsurance = insuranceSalary > MAX_SALARY_FOR_HEALTH_INSURANCE ? MAX_SALARY_FOR_HEALTH_INSURANCE : insuranceSalary;
     const maxSalaryForUnemploymentInsurance = this.getMaxSalaryForUnemploymentInsurance(region);
-    const salaryForEmploymentInsurance = grossSalary > maxSalaryForUnemploymentInsurance ? maxSalaryForUnemploymentInsurance : grossSalary;
+    const salaryForEmploymentInsurance = insuranceSalary > maxSalaryForUnemploymentInsurance ? maxSalaryForUnemploymentInsurance : insuranceSalary;
     const socialInsurance = (salaryForSocialInsurance * 8) / 100;
     const healthInsurance = (salaryForHealthInsurance * 1.5) / 100;
     const unEmploymentInsurance = salaryForEmploymentInsurance / 100;
