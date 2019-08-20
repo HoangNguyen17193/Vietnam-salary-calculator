@@ -1,3 +1,5 @@
+import { TAX_PAYER_PERSONAL_RELIEF, DEPENDENTS_RELIEF } from '../constants.js';
+
 export default class  {
   constructor(grossSalary, dependents, taxes, statutoryInsuranceContributions) {
     this.grossSalary = grossSalary;
@@ -19,4 +21,12 @@ export default class  {
     return this.grossSalary - this.getTotalTax() - this.getTotalInsuranceContribution();
   }
 
+  getTaxPayerPersonalRelief() {
+    return TAX_PAYER_PERSONAL_RELIEF;
+  }
+
+  getDependentsRelief() {
+    const dependents = parseInt(this.dependents) || 0;
+    return DEPENDENTS_RELIEF * dependents;
+  }
 }
