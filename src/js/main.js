@@ -22,9 +22,11 @@ $(document).ready(() => {
   $('.TC__form').on('submit', (e) => {
     e.preventDefault();
     const grossSalary = $('.TC__form__gross-salary').val();
+    const insurancePayFor = $('input[name=insurance-pay-for-radio-input]:checked').val();
+    const insuranceSalary = insurancePayFor === 'full' ? grossSalary : $('.TC__form__insurance__pay-for__input').val();
     const dependents = $('.TC__form__register-dependents').val();
     const region = $('input[name=region-radio-input]:checked').val();
-    const salaryDetail = Calculator.calculate(grossSalary, dependents, region);
+    const salaryDetail = Calculator.calculate(grossSalary, dependents, region, insuranceSalary);
     $('.TC__result-container').empty();
     $('.TC__result-container').append(Report.generate(salaryDetail));
   });
