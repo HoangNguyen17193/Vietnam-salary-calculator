@@ -12,37 +12,72 @@
 <div class="TC">
   <div class="TC__form-container">
     <form class="TC__form">
-      <div class="form-group">
-        <label class="TC__form__label" for="gross-salary">Gross salary(VND)*</label>
-        <input value="0" autocomplete="off" required type="text" class="form-control TC__form__input TC__form__gross-salary" id="gross-salary">
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label class="TC__form__label" for="gross-salary">Gross salary(VND)*</label>
+            <input value="0" autocomplete="off" required type="text" class="form-control TC__form__input TC__form__gross-salary" id="gross-salary">
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label class="TC__form__label" for="register-dependents">Registered dependents</label>
+            <input value="0" type="number" min="0" max="100" class="form-control TC__form__input TC__form__register-dependents"
+                   id="register-dependents">
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label class="TC__form__label" for="register-dependents">Registered dependents</label>
-        <input value="0" type="number" min="0" max="100" class="form-control TC__form__input TC__form__register-dependents" id="register-dependents">
+      <div class="row">
+        <div class="col-6">
+          <div class="TC__form__insurance">
+            <label class="TC__form__label">Insurance</label>
+            <div class="form-group TC__form__insurance__pay-for">
+              <label class="TC__form__insurance__pay-for__label">Pay for:</label>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input value="full" checked type="radio" class="custom-control-input" id="TC__insurance-pay-for__full" name="insurance-pay-for-radio-input">
+                <label class="custom-control-label" for="TC__insurance-pay-for__full">Full wage</label>
+              </div>
+
+              <div class="custom-control custom-radio custom-control-inline">
+                <input value="other" type="radio" class="custom-control-input" id="TC__insurance-pay-for__other" name="insurance-pay-for-radio-input">
+                <label class="custom-control-label" for="TC__insurance-pay-for__other">Other</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <input disabled type="text" value="0" autocomplete="off"  class="form-control TC__form__input TC__form__insurance__pay-for__input" />
+        </div>
+        </div>
       </div>
-      <div class="form-group">
-        <div class="custom-control custom-radio custom-control-inline">
-          <input value=1 checked type="radio" class="custom-control-input" id="TC_region1" name="region-radio-input">
-          <label class="custom-control-label" for="TC_region1">Region 1</label>
-        </div>
+      <div class="row">
+        <div class="col">
+          <label class="TC__form__label" for="register-dependents">Region</label>
+          <div class="form-group">
+            <div class="custom-control custom-radio custom-control-inline">
+              <input value=1 checked type="radio" class="custom-control-input" id="TC_region1" name="region-radio-input">
+              <label class="custom-control-label" for="TC_region1">Region 1</label>
+            </div>
 
-        <div class="custom-control custom-radio custom-control-inline">
-          <input value=2 type="radio" class="custom-control-input" id="TC_region2" name="region-radio-input">
-          <label class="custom-control-label" for="TC_region2">Region 2</label>
-        </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input value=2 type="radio" class="custom-control-input" id="TC_region2" name="region-radio-input">
+              <label class="custom-control-label" for="TC_region2">Region 2</label>
+            </div>
 
-        <div class="custom-control custom-radio custom-control-inline">
-          <input value=3 type="radio" class="custom-control-input" id="TC_region3" name="region-radio-input">
-          <label class="custom-control-label" for="TC_region3">Region 3</label>
-        </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input value=3 type="radio" class="custom-control-input" id="TC_region3" name="region-radio-input">
+              <label class="custom-control-label" for="TC_region3">Region 3</label>
+            </div>
 
-        <div class="custom-control custom-radio custom-control-inline">
-          <input value=4 type="radio" class="custom-control-input" id="TC_region4" name="region-radio-input">
-          <label class="custom-control-label" for="TC_region4">Region 4</label>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input value=4 type="radio" class="custom-control-input" id="TC_region4" name="region-radio-input">
+              <label class="custom-control-label" for="TC_region4">Region 4</label>
+            </div>
+          </div>
         </div>
       </div>
       <button type="submit" class="TC__form__button TC__form__calculate-button">Calculate</button>
-
       <button type="button" class="TC__form__button TC__form__clear-button">Clear</button>
       <div class="TC__form__note">
         <ul>
