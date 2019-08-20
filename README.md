@@ -1,0 +1,1 @@
+The Personal income tax (PIT) as well as tax rates and deductibles are currently regulated by decree 65/2013/ND-CP and related circulars. This extension will take a gross salary and calculates the net salary based on current tax rates and the following deductible amounts
