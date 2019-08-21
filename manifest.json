@@ -1,5 +1,5 @@
 {
-  "name": "VN Salary Calculator",
+  "name": "Vietnam Salary Calculator",
   "author": "Hoang Nguyen",
   "description" : "This extension will take a gross salary and calculates the net salary based on current tax rates and the deductible amounts",
   "version": "1.0.0",
