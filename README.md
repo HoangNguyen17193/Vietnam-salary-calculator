@@ -1,4 +1,4 @@
-# VN Salary Calculator
+# Vietnam Salary Calculator
 
 [![GuardRails badge](https://badges.guardrails.io/HoangNguyen17193/VN-salary-calculator.svg?token=d744647bafdd77124c27f1072f77c22aa127631df79cc88d84fbcde188e6a071)](https://dashboard.guardrails.io/default/gh/HoangNguyen17193/VN-salary-calculator)
 
