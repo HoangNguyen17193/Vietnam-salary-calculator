@@ -18,6 +18,10 @@ $(document).ready(() => {
     $('.TC__form__insurance__pay-for__input').attr('disabled', this.value === "full");
   });
 
+  $('input[name=none-taxable-income-radio-input]').change(function() {
+    $('.TC__form__non-taxable-income__input').attr('disabled', this.value === "none");
+  });
+
   $('.TC__form').on('submit', (e) => {
     e.preventDefault();
     const grossSalary = $('.TC__form__gross-salary').val();
