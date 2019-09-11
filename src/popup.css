@@ -94,6 +94,11 @@
   border-color: #25aae1;
   background-color: #25aae1;
 }
+
+.custom-radio {
+  width: 100px;
+}
+
 .TC .table {
   color: #98A5B3;
 }
