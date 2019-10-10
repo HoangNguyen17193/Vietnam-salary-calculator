@@ -14,6 +14,11 @@ $(document).ready(() => {
     minimumValue: 0
   });
 
+  new AutoNumeric('.TC__form__non-taxable-income__input', {
+    unformatOnSubmit: true,
+    minimumValue: 0
+  });
+
   $('input[name=insurance-pay-for-radio-input]').change(function() {
     $('.TC__form__insurance__pay-for__input').attr('disabled', this.value === "full");
   });
@@ -26,10 +31,12 @@ $(document).ready(() => {
     e.preventDefault();
     const grossSalary = $('.TC__form__gross-salary').val();
     const insurancePayFor = $('input[name=insurance-pay-for-radio-input]:checked').val();
+    const nontaxableIncomeRadio = $('input[name=none-taxable-income-radio-input]:checked').val();
     const insuranceSalary = insurancePayFor === 'full' ? grossSalary : $('.TC__form__insurance__pay-for__input').val();
+    const nonTaxableIncome = nontaxableIncomeRadio === 'other' ? $('.TC__form__non-taxable-income__input').val() : 0;
     const dependents = $('.TC__form__register-dependents').val();
     const region = $('input[name=region-radio-input]:checked').val();
-    const salaryDetail = Calculator.calculate(grossSalary, dependents, region, insuranceSalary);
+    const salaryDetail = Calculator.calculate(grossSalary, dependents, region, insuranceSalary, nonTaxableIncome);
     $('.TC__result-container').empty();
     $('.TC__result-container').append(Report.generate(salaryDetail));
   });
