@@ -11,14 +11,14 @@ import {
 import SalaryDetail from '../model/salary-detail.js';
 
 export default class {
-  static calculate(grossSalary, dependents, region, insuranceSalary) {
+  static calculate(grossSalary, dependents, region, insuranceSalary, nonTaxableIncome) {
     const statutoryInsuranceContribution = this.calculateStatutoryInsuranceContribution(insuranceSalary, region);
-    const taxes = this.calculateTax((grossSalary - statutoryInsuranceContribution.total), dependents);
+    const taxes = this.calculateTax((grossSalary - statutoryInsuranceContribution.total), dependents, nonTaxableIncome);
     return new SalaryDetail(grossSalary, dependents, taxes, statutoryInsuranceContribution);
   }
 
-  static calculateTax(income = 0, dependents = 0) {
-    const taxableIncome = income - 9000000 - (dependents * 3600000);
+  static calculateTax(income = 0, dependents = 0, nonTaxableIncome = 0) {
+    const taxableIncome = income - 9000000 - (dependents * 3600000) - nonTaxableIncome;
     if(taxableIncome <= 0) {
       return 0;
     }

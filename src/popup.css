@@ -24,6 +24,11 @@
   background-color: rgba(194,199,203,0.2);
 }
 
+.TC__form__input:disabled {
+  background-color: rgba(194,199,203,0.05);
+  cursor: not-allowed;
+}
+
 .TC__form__label {
   color: white;
 }
@@ -33,9 +38,9 @@
 .TC__form__insurance__pay-for__input {
   margin-top: 25px;
 }
-.TC__form__insurance__pay-for__input:disabled {
-  background-color: rgba(194,199,203,0.05);
-  cursor: not-allowed;
+
+.TC__form__non-taxable-income__input {
+  margin-top: 25px;
 }
 
 .TC__form__button {
@@ -89,6 +94,11 @@
   border-color: #25aae1;
   background-color: #25aae1;
 }
+
+.custom-radio {
+  width: 100px;
+}
+
 .TC .table {
   color: #98A5B3;
 }
