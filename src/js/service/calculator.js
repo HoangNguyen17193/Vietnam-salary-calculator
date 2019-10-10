@@ -18,8 +18,6 @@ export default class {
   }
 
   static calculateTax(income = 0, dependents = 0, nonTaxableIncome = 0) {
-    console.log(income);
-    console.log(nonTaxableIncome);
     const taxableIncome = income - 9000000 - (dependents * 3600000) - nonTaxableIncome;
     if(taxableIncome <= 0) {
       return 0;
