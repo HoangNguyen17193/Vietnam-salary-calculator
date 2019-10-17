@@ -1,6 +1,6 @@
 # [Vietnam Salary Calculator](https://chrome.google.com/webstore/detail/vietnam-salary-calculator/pnmnpealgaokichjfodfpikfbfgaeghc)
 
-[![GuardRails badge](https://badges.guardrails.io/HoangNguyen17193/VN-salary-calculator.svg?token=d744647bafdd77124c27f1072f77c22aa127631df79cc88d84fbcde188e6a071)](https://dashboard.guardrails.io/default/gh/HoangNguyen17193/VN-salary-calculator)
+[![GuardRails badge](https://badges.guardrails.io/HoangNguyen17193/Vietnam-salary-calculator.svg?token=d744647bafdd77124c27f1072f77c22aa127631df79cc88d84fbcde188e6a071&provider=github)](https://dashboard.guardrails.io/default/gh/HoangNguyen17193/Vietnam-salary-calculator)
 
 ![](https://raw.githubusercontent.com/HoangNguyen17193/VN-salary-calculator/master/media/screen-shots.gif)
 
