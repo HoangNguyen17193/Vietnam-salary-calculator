@@ -36,14 +36,14 @@ const TAX_LEVELS = [
   },
   {
     number: 6,
-    min: 52000000,
-    max: 80000000,
+    from: 52000000,
+    to: 80000000,
     percent: 30,
     title: "From 52m to 80m (30%)"
   },
   {
     number: 7,
-    min: 80000000,
+    from: 80000000,
     percent: 35,
     title: "From 80m (35%)"
   }
