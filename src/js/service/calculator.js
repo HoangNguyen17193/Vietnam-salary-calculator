@@ -22,9 +22,12 @@ export default class {
     if(taxableIncome <= 0) {
       return 0;
     }
-    return TAX_LEVELS.filter(taxLevel => taxableIncome > taxLevel.to || (taxLevel.from < taxableIncome && taxLevel.to))
+
+    return TAX_LEVELS.filter(taxLevel => (taxLevel.to && taxableIncome > taxLevel.to)
+      || (taxLevel.to && taxableIncome > taxLevel.from && taxableIncome < taxLevel.to)
+      || (taxableIncome > taxLevel.from && !taxLevel.to))
       .map(taxLevel => {
-        if(taxableIncome > taxLevel.to) {
+        if(taxLevel.to && taxableIncome > taxLevel.to) {
           const total = ((taxLevel.to - taxLevel.from) * taxLevel.percent) / 100;
           return {...taxLevel, total}
         }

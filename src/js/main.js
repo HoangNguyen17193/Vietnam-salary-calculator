@@ -9,6 +9,16 @@ $(document).ready(() => {
     minimumValue: 0
   });
 
+  new AutoNumeric('.TC__form__gross-salary-usd', {
+    unformatOnSubmit: true,
+    minimumValue: 0
+  });
+
+  new AutoNumeric('.TC__form__exchange-rate', {
+    unformatOnSubmit: true,
+    minimumValue: 0
+  });
+
   new AutoNumeric('.TC__form__insurance__pay-for__input', {
     unformatOnSubmit: true,
     minimumValue: 0
@@ -29,7 +39,10 @@ $(document).ready(() => {
 
   $('.TC__form').on('submit', (e) => {
     e.preventDefault();
-    const grossSalary = $('.TC__form__gross-salary').val();
+    const grossSalaryVND = $('.TC__form__gross-salary').val();
+    const grossSalaryUSD = $('.TC__form__gross-salary-usd').val();
+    const exchangeRate = $('.TC__form__exchange-rate').val();
+    const grossSalary = parseFloat(grossSalaryVND) + parseFloat(grossSalaryUSD * exchangeRate);
     const insurancePayFor = $('input[name=insurance-pay-for-radio-input]:checked').val();
     const nontaxableIncomeRadio = $('input[name=none-taxable-income-radio-input]:checked').val();
     const insuranceSalary = insurancePayFor === 'full' ? grossSalary : $('.TC__form__insurance__pay-for__input').val();
