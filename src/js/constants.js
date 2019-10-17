@@ -4,48 +4,48 @@ const TAX_LEVELS = [
     from: 0,
     to: 5000000,
     percent: 5,
-    title: "To 5m (VND)"
+    title: "To 5m (5%)"
   },
   {
     number: 2,
     from: 5000000,
     to: 10000000,
     percent: 10,
-    title: "From 5m to 10m (VND)"
+    title: "From 5m to 10m (10%)"
   },
   {
     number: 3,
     from: 10000000,
     to: 18000000,
     percent: 15,
-    title: "From 10m to 18m (VND)"
+    title: "From 10m to 18m (15%)"
   },
   {
     number: 4,
     from: 18000000,
     to: 32000000,
     percent: 20,
-    title: "From 18m to 32m (VND)"
+    title: "From 18m to 32m (20%)"
   },
   {
     number: 5,
     from: 32000000,
     to: 52000000,
     percent: 25,
-    title: "From 32m to 52m (VND)"
+    title: "From 32m to 52m (25%)"
   },
   {
     number: 6,
     min: 52000000,
     max: 80000000,
     percent: 30,
-    title: "From 52m to 80m (VND)"
+    title: "From 52m to 80m (30%)"
   },
   {
     number: 7,
     min: 80000000,
     percent: 35,
-    title: "From 80m (VND)"
+    title: "From 80m (35%)"
   }
 ];
 
