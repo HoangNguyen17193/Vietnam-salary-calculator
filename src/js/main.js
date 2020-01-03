@@ -56,6 +56,8 @@ $(document).ready(() => {
 
   $('.TC__form__clear-button').click(() => {
     AutoNumeric.getAutoNumericElement('.TC__form__gross-salary').set(0);
+    AutoNumeric.getAutoNumericElement('.TC__form__gross-salary-usd').set(0);
+    AutoNumeric.getAutoNumericElement('.TC__form__exchange-rate').set(23300);
     AutoNumeric.getAutoNumericElement('.TC__form__insurance__pay-for__input').set(0);
     $('.TC__form__register-dependents').val(0);
     resetInsuranceInput();
