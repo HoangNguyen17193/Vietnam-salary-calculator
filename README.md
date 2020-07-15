@@ -7,8 +7,8 @@
 The Personal income tax (PIT) as well as tax rates and deductibles are currently regulated by decree 65/2013/ND-CP and related circulars. This Chrome extension will take a gross salary and calculates the net salary based on current tax rates and the following:
 
 Deduction for tax calculation
-- VND 9,000,000 (four million) for the tax payer
-- VND 3,600,000 for per person that depends on the tax payer (relatives, children)
+- VND 11,000,000 (four million) for the tax payer
+- VND 4,400,000 for per person that depends on the tax payer (relatives, children)
 
 Statutory Insurance Contributions
 - Social insurance contribution 8%
